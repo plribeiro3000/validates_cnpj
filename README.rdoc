@@ -1,6 +1,6 @@
 = ValidatesCNPJ {<img src="https://secure.travis-ci.org/plribeiro3000/validates_cnpj.png" />}[http://travis-ci.org/plribeiro3000/validates_cnpj]
 
-Rails gem to validate CNPJ
+Rails gem to validate CNPJ. Don't forget to check {ValidatesCpf}[https://github.com/plribeiro3000/validates_cpf].
 
 == Install
 
@@ -16,7 +16,7 @@ end
 
 == Test
 
-Only Rspec supported at the moment. The gem already have macros for shoulda-macros and remarkable.
+The gem has mactchers for shoulda-macros and remarkable.
 
 If you are using shoulda-matchers, add this line to your spec_helper.rb :
     require "validates_cnpj/shoulda-matchers/validate_as_cnpj_matcher"
