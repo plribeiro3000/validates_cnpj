@@ -1,0 +1,32 @@
+= ValidatesCNPJ {<img src="https://secure.travis-ci.org/plribeiro3000/validates_cnpj.png" />}[http://travis-ci.org/plribeiro3000/validates_cnpj]
+
+Rails gem to validate CNPJ
+
+== Install
+
+gem install validates_cnpj
+
+== Usage
+
+Lets say you have a model with "cnpj" string column that you want to be a valid CNPJ. Just add this to your model:
+
+class User < ActiveRecord::Base
+    validates :cnpj, :cnpj => true
+end
+
+== Test
+
+Only Rspec supported at the moment. The gem already have macros for shoulda-macros and remarkable.
+
+If you are using shoulda-matchers, add this line to your spec_helper.rb :
+    require "validates_cnpj/shoulda-matchers/validate_as_cnpj_matcher"
+If you are using remarkable, add this line to your spec_helper.rb :
+    require "validates_cnpj/remarkable/validate_as_cnpj_matcher"
+
+=== How?
+
+You should use validates_as_cnpj(:attribute) just like any other shoulda matcher.
+
+== Special Thanks
+
+This project is based on brcpfcnpj gem and his intention it to mantain a cleaner code to validate CNPJ and easy macros to test it.
