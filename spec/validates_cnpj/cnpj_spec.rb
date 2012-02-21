@@ -53,7 +53,7 @@ describe CNPJ do
 
   context "should be valid with" do
     it "nil as number" do
-          CNPJ.new(nil).should be_valid
+      CNPJ.new(nil).should be_valid
     end
 
     it "69103604000160 as number" do
