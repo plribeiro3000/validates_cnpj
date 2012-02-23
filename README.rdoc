@@ -30,3 +30,7 @@ You should use validates_as_cnpj(:attribute) just like any other shoulda matcher
 == Goal
 
 This project is based on brcpfcnpj gem and his intention it to mantain a cleaner code to validate CNPJ and easy matchers to test it.
+
+== Contribute
+
+Fork the project and send me a Pull Request. =D
