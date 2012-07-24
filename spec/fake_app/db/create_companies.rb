@@ -1,7 +1,8 @@
 class CreateCompanies < ActiveRecord::Migration
   def self.up
-    create_table :companies do |u|
-      u.string :cnpj
+    create_table :companies do |c|
+      c.string :cnpj
+      c.string :name
     end
   end
 
