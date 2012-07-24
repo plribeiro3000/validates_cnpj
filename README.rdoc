@@ -1,6 +1,6 @@
 = ValidatesCNPJ {<img src="https://secure.travis-ci.org/plribeiro3000/validates_cnpj.png" />}[http://travis-ci.org/plribeiro3000/validates_cnpj]
 
-Rails gem to validate CNPJ. Don't forget to check {ValidatesCpf}[https://github.com/plribeiro3000/validates_cpf] and {ValidatesTelephone}[https://github.com/plribeiro3000/validates_telephone].
+Rails gem to validate CNPJ. Don't forget to check {ValidatesCpf}[https://github.com/plribeiro3000/validates_cpf], {ValidatesTelephone}[https://github.com/plribeiro3000/validates_telephone] and {ValidatesHost}[https://github.com/plribeiro3000/validates_host].
 
 == Install
 
@@ -10,26 +10,17 @@ gem install validates_cnpj
 
 Lets say you have a model with "cnpj" string column that you want to be a valid CNPJ. Just add this to your model:
 
-class User < ActiveRecord::Base
+ class User < ActiveRecord::Base
     validates :cnpj, :cnpj => true
-end
+ end
 
 == Test
 
-This gem has matchers for shoulda-matchers and remarkable.
+This gem has builtin matchers for shoulda-matchers and remarkable.
 
-If you are using shoulda-matchers, add this line to your spec_helper.rb :
-    require "validates_cnpj/shoulda-matchers/validate_as_cnpj_matcher"
-If you are using remarkable, add this line to your spec_helper.rb :
-    require "validates_cnpj/remarkable/validate_as_cnpj_matcher"
+== Notes
 
-=== How?
-
-You should use validates_as_cnpj(:attribute) just like any other shoulda matcher.
-
-== Goal
-
-This project is based on brcpfcnpj gem and his intention it to mantain a cleaner code to validate CNPJ and easy matchers to test it.
+Since version 1.0.0, it isn't necessary to load any file inside your spec_helper anymore.
 
 == Contribute
 
