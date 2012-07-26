@@ -6,6 +6,6 @@ require "validates_cnpj/remarkable/require_a_valid_cnpj_matcher" if defined?(::R
 
 class CnpjValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    record.errors[attribute] << I18n.t("errors.messages.invalid") unless CNPJ.new(value).valid?
+    record.errors[attribute] << I18n.t("activerecord.errors.models.#{record.class.name.downcase}.attributes.#{attribute.to_s}.invalid") unless CNPJ.new(value).valid?
   end
 end
