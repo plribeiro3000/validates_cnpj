@@ -4,7 +4,6 @@ describe CnpjValidator do
   context "when cnpj is invalid" do
     before :each do
       @company = Company.new(:cnpj => "12345")
-      I18n.stub(:t).with("activerecord.errors.models.company.attributes.cnpj.invalid").and_return("is invalid")
     end
 
     it "should set object as invalid" do
