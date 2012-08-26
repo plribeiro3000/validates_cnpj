@@ -11,15 +11,12 @@ Gem::Specification.new do |s|
   s.summary     = %q{CNPJ Validation GEM}
   s.description = %q{Validates CNPJ and test it with matchers in a simple way.}
 
-  s.add_dependency("activerecord", ">= 3.0.0")
-
-  s.rubyforge_project = "validates_cnpj"
-
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = %w(lib)
 
+  s.add_dependency("activemodel", ">= 3.0.0")
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec", ">= 2.0.0"
   s.add_development_dependency "shoulda-matchers", ">= 1.2.0"
