@@ -16,9 +16,10 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = %w(lib)
 
-  s.add_dependency("activemodel", ">= 3.0.0")
+  s.add_dependency "activemodel", ">= 3.0.0"
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec", ">= 2.0.0"
+  s.add_development_dependency "activerecord", ">= 3.0.0"
   s.add_development_dependency "shoulda-matchers", ">= 1.2.0"
   s.add_development_dependency "remarkable_activerecord", "= 4.0.0.alpha4"
   s.add_development_dependency "sqlite3"
