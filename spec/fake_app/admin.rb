@@ -1,2 +1,3 @@
-class Admin < ActiveRecord::Base
+class Admin
+  attr_accessor :cnpj
 end
