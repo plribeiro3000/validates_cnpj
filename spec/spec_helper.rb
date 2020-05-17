@@ -1,8 +1,25 @@
+# frozen_string_literal: true
+
 require 'rspec'
 require 'active_model'
 require 'coveralls'
+require 'jazz_fingers'
+require 'shoulda-matchers'
+
+JazzFingers.configure do |config|
+  config.colored_prompt = false
+  config.awesome_print = false
+  config.coolline = false
+  config.application_name = ValidatesCnpj
+end
+
+JazzFingers.setup!
+
+RSpec.configure do |config|
+  config.include Shoulda::Matchers::ActiveModel
+end
 
 Coveralls.wear!
 
-Dir.glob(File.dirname(__FILE__) + '/../lib/**/*.rb').each { |file| require file }
-Dir.glob(File.dirname(__FILE__) + '/fake_app/**/*.rb').each { |file| require file }
+require File.expand_path('lib/validates_cnpj')
+require File.expand_path('spec/fake_app/company')

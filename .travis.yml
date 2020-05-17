@@ -1,17 +1,10 @@
 rvm:
-  - 1.8.7
-  - 1.9.2
-  - 1.9.3
-  - jruby
-  - ree
+  - 2.2
+  - 2.3
+  - 2.4
+  - 2.5
 gemfile:
-  - gemfiles/Gemfile.rails3
   - gemfiles/Gemfile.rails4
-matrix:
-  exclude:
-    - rvm: 1.8.7
-      gemfile: gemfiles/Gemfile.rails4
-    - rvm: 1.9.2
-      gemfile: gemfiles/Gemfile.rails4
-    - rvm: ree
-      gemfile: gemfiles/Gemfile.rails4
+  - gemfiles/Gemfile.rails5
+before_script:
+  - bundle exec rubocop

@@ -1,6 +1,0 @@
-source :rubygems
-
-gem 'activesupport', '3.2.14'
-gem 'mime-types', '< 2.0'
-
-gemspec :path => '../'

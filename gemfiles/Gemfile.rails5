@@ -1,0 +1,5 @@
+source :rubygems
+
+gem 'activesupport', '>= 5.0.0'
+
+gemspec :path => '../'

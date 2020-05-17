@@ -23,14 +23,33 @@ Or install it yourself as:
 Just use as any other validator:
 
 ```ruby
-class User < ActiveRecord::Base
-    validates :cnpj, :cnpj => true
+class Company < ActiveRecord::Base
+    validates :cnpj, cnpj: true
 end
 ```
 
-## Notes
+To force the attribute to be masked pass option `mask`:
 
-It will load a macher to test automatically if the gem is below shoulda-matchers.
+```ruby
+class Company < ActiveRecord::Base
+  validates :cnpj, cnpj: { mask: true }
+end
+```
+
+## Testing
+
+Require the matcher:
+
+```ruby
+require 'validates_cnpj/require_a_valid_cnpj_matcher'
+```
+
+Use in your tests:
+
+```ruby
+it { is_expected.to require_a_valid_cnpj } # It will test the attribute :cnpj by default
+it { is_expected.to require_a_valid_cnpj(:id) }
+```
 
 ## Mantainers
 [@plribeiro3000](https://github.com/plribeiro3000)

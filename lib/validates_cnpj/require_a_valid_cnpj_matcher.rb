@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'shoulda-matchers'
 require 'active_support/core_ext/array/wrap'
 

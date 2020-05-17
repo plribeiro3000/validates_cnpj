@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Company
   include ActiveModel::Validations
   include ActiveModel::Conversion
@@ -5,7 +7,7 @@ class Company
 
   attr_accessor :cnpj, :name
 
-  validates :cnpj, :cnpj => true
+  validates :cnpj, cnpj: true
 
   def initialize(attributes = {})
     attributes.each do |key, value|

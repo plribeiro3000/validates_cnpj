@@ -1,0 +1,16 @@
+require: rubocop-rspec
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 125
+
+RSpec/DescribedClass:
+  EnforcedStyle: explicit
+
+Style/Documentation:
+  Enabled: false
