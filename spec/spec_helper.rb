@@ -13,7 +13,7 @@ JazzFingers.configure do |config|
   config.application_name = ValidatesCnpj
 end
 
-JazzFingers.setup!
+require 'jazz_fingers/setup'
 
 RSpec.configure do |config|
   config.include Shoulda::Matchers::ActiveModel
