@@ -5,7 +5,11 @@ class CnpjValidator < ActiveModel::EachValidator
     cnpj = ValidatesCnpj::Cnpj.new(value)
 
     if cnpj.valid?
-      record.send("#{attribute}=", cnpj.number) if options[:mask]
+      if options[:mask]
+        record.send("#{attribute}=", cnpj.number)
+      elsif value.is_a?(String) && value != value.upcase
+        record.send("#{attribute}=", value.upcase)
+      end
     else
       ruby_prior_version_three =
         Gem::Version.new(RUBY_VERSION) < Gem::Version.new('3.0.0')

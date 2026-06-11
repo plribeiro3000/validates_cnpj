@@ -17,7 +17,7 @@ module Shoulda
 
         def matches?(subject)
           @subject = subject
-          disallows_value_of('123456') && allows_value_of('51.114.450/0001-46')
+          disallows_value_of('123456') && allows_value_of('51.114.450/0001-46') && allows_value_of('AB.12C.D34/EFGH-83')
         end
       end
     end
