@@ -10,7 +10,6 @@ Gem::Specification.new do |gem|
   gem.summary     = 'Validates CNPJ and test it with matchers in a simple way.'
 
   gem.files         = `git ls-files`.split("\n")
-  gem.test_files    = `git ls-files -- {test,spec,features,examples,gemfiles}/*`.split("\n")
   gem.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   gem.require_paths = %w[lib]
 
@@ -21,9 +20,11 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'coveralls'
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
-  gem.add_development_dependency 'rubocop', '< 0.68'
+  gem.add_development_dependency 'rubocop'
+  gem.add_development_dependency 'rubocop-rake'
   gem.add_development_dependency 'rubocop-rspec'
   gem.add_development_dependency 'shoulda-matchers'
 
-  gem.add_runtime_dependency 'activemodel'
+  gem.add_dependency 'activemodel'
+  gem.metadata['rubygems_mfa_required'] = 'true'
 end

@@ -47,6 +47,26 @@ describe ValidatesCnpj::Cnpj do
     it '6910360400016000 as number' do
       expect(ValidatesCnpj::Cnpj.new('6910360400016000')).not_to be_valid
     end
+
+    it 'AB12CD34EFGH84 as number' do
+      expect(ValidatesCnpj::Cnpj.new('AB12CD34EFGH84')).not_to be_valid
+    end
+
+    it 'AB.12C.D34/EFGH-84 as number' do
+      expect(ValidatesCnpj::Cnpj.new('AB.12C.D34/EFGH-84')).not_to be_valid
+    end
+
+    it 'AAAAAAAAAAAA00 as number' do
+      expect(ValidatesCnpj::Cnpj.new('AAAAAAAAAAAA00')).not_to be_valid
+    end
+
+    it 'AB12CD34EFGH8 as number' do
+      expect(ValidatesCnpj::Cnpj.new('AB12CD34EFGH8')).not_to be_valid
+    end
+
+    it 'AB12CD34EFGHAB as number' do
+      expect(ValidatesCnpj::Cnpj.new('AB12CD34EFGHAB')).not_to be_valid
+    end
   end
 
   context 'with valid option' do
@@ -77,11 +97,31 @@ describe ValidatesCnpj::Cnpj do
     it '00.000.000/1447-89 as number' do
       expect(ValidatesCnpj::Cnpj.new('00.000.000/1447-89')).to be_valid
     end
+
+    it 'AB12CD34EFGH83 as number' do
+      expect(ValidatesCnpj::Cnpj.new('AB12CD34EFGH83')).to be_valid
+    end
+
+    it 'AB.12C.D34/EFGH-83 as number' do
+      expect(ValidatesCnpj::Cnpj.new('AB.12C.D34/EFGH-83')).to be_valid
+    end
+
+    it 'ab12cd34efgh83 as number' do
+      expect(ValidatesCnpj::Cnpj.new('ab12cd34efgh83')).to be_valid
+    end
   end
 
   context 'with a valid value' do
     it 'returns it formatted' do
       expect(ValidatesCnpj::Cnpj.new('69103604000160').number).to eq('69.103.604/0001-60')
+    end
+
+    it 'returns an alphanumeric number formatted' do
+      expect(ValidatesCnpj::Cnpj.new('AB12CD34EFGH83').number).to eq('AB.12C.D34/EFGH-83')
+    end
+
+    it 'returns a lowercase alphanumeric number formatted and upcased' do
+      expect(ValidatesCnpj::Cnpj.new('ab12cd34efgh83').number).to eq('AB.12C.D34/EFGH-83')
     end
   end
 

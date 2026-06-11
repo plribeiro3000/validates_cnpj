@@ -13,3 +13,4 @@ Coveralls.wear!
 
 require File.expand_path('lib/validates_cnpj')
 require File.expand_path('spec/fake_app/company')
+require File.expand_path('spec/fake_app/masked_company')

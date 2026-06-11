@@ -3,11 +3,11 @@
 module ValidatesCnpj
   class Cnpj
     def initialize(number)
-      number =~ %r{^(\d{2}\.?\d{3}\.?\d{3}/?\d{4})-?(\d{2})$}
+      number.to_s.upcase =~ %r{^([A-Z\d]{2}\.?[A-Z\d]{3}\.?[A-Z\d]{3}/?[A-Z\d]{4})-?(\d{2})$}
       @number = number
       @pure_number = Regexp.last_match(1)
       @result = Regexp.last_match(2)
-      @cleaned_number = @pure_number.nil? ? nil : @number.gsub(%r{[\./-]}, '')
+      @cleaned_number = @pure_number.nil? ? nil : @number.to_s.upcase.gsub(%r{[./-]}, '')
       format_number! if @pure_number
     end
 
@@ -15,15 +15,15 @@ module ValidatesCnpj
       return true if @number.blank?
       return false unless @pure_number
 
-      check_cnpj
+      valid_cnpj?
     end
 
     attr_reader :number
 
     private
 
-    def check_cnpj
-      return false if (@cleaned_number.length != 14) || (@cleaned_number.scan(/\d/).uniq.length == 1)
+    def valid_cnpj?
+      return false if (@cleaned_number.length != 14) || (@cleaned_number[0, 12].chars.uniq.length == 1)
 
       @result == first_digit_verifier + second_digit_verifier
     end
@@ -40,8 +40,8 @@ module ValidatesCnpj
 
     def multiply_and_sum(array, number)
       multiplied = []
-      number.scan(/\d{1}/).each_with_index { |e, i| multiplied[i] = e.to_i * array[i] }
-      multiplied.inject { |s, e| s + e }
+      number.scan(/[A-Z\d]/).each_with_index { |character, index| multiplied[index] = (character.ord - 48) * array[index] }
+      multiplied.inject { |sum, element| sum + element }
     end
 
     def digit_verifier(rest)
@@ -49,7 +49,7 @@ module ValidatesCnpj
     end
 
     def format_number!
-      @cleaned_number =~ /(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/
+      @cleaned_number =~ /([A-Z\d]{2})([A-Z\d]{3})([A-Z\d]{3})([A-Z\d]{4})(\d{2})/
 
       match1 = Regexp.last_match(1)
       match2 = Regexp.last_match(2)

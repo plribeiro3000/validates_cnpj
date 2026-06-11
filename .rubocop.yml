@@ -1,17 +1,37 @@
+plugins:
+  - rubocop-rake
+  - rubocop-rspec
+
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.2
 
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 150
+
 Metrics/AbcSize:
-  Max: 17
+  Enabled: false
 
 Metrics/BlockLength:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 150
+Metrics/CyclomaticComplexity:
+  Enabled: false
 
 Metrics/MethodLength:
   Max: 25
 
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
 Style/Documentation:
+  Enabled: false
+
+Style/RedundantConstantBase:
   Enabled: false
